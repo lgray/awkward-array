@@ -821,7 +821,10 @@ class JaggedArray(awkward.array.base.AwkwardArrayWithContent):
     def __array_ufunc__(self, ufunc, method, *inputs, **kwargs):
         import awkward.array.objects
         import awkward.array.table
-
+        
+        for i in range(len(inputs)):
+            print '__array_ufunc__',type(self),type(inputs[i])
+        
         if "out" in kwargs:
             raise NotImplementedError("in-place operations not supported")
 
